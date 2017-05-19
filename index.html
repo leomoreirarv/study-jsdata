@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/js-data/dist/js-data.min.js"></script>
+    <script src="bower_components/js-data-angular/dist/js-data-angular.min.js"></script>
+    <script src="bower_components/localforage/dist/localforage.js"></script>
+    <script src="bower_components/js-data-localforage/dist/js-data-localforage.min.js"></script>
+    <script src="app.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="HomeController as home">
+        <form>
+            <label>
+                user: <input type="text" ng-model="home.name">
+            </label>
+            <button ng-click="home.createUser({ name : home.name })"> Cadastrar </button>
+        </form>
+        <ul>
+            <li ng-repeat="user in users" ng-click="home.destroyUser(user)">{{user.name}} - {{user.id}}</li>
+        </ul>
+    </div>
+</body>
+</html>
